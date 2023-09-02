@@ -14,6 +14,7 @@ const appSettings = {
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const accountList = ref(database, "accountList");
+const resultText = document.getElementById("results")
 
 onValue(accountList, function(snapshot) {
     let accountArray = Object.entries(snapshot.val())
@@ -45,12 +46,15 @@ document.getElementById("sending").addEventListener("click", () => {
     text.forEach(function(x) {
         
         if(textField.value.toLowerCase() == x[1]) {
-            console.warn("Found")
+         appendText(`Found ${x[1]}`)
         result = true
   }  })
    if(result == false) {
-      console.warn("None")
+      appendText("None")
   }
  
    
 })}
+
+function appendText(text) 
+resultText.textContent = text
