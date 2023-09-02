@@ -3,6 +3,7 @@ import {
   getDatabase,
   ref,
   push,
+  onValue
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -14,6 +15,13 @@ const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const accountList = ref(database, "accountList");
 
+onValue(accountList, function(snapshot) {
+    let accountArray = Object.entries(snapshot.val())
+
+        testing(accountArray)
+   
+})
+
 const footer = ["home", "search", "cart", "profile"];
 let lastId = "home";
 footer.forEach((footer) => {
@@ -24,10 +32,25 @@ footer.forEach((footer) => {
   });
 });
 
-console.log(document.getElementById("sending"));
+
+function testing(text) {
+  
+    
+    
+    
 document.getElementById("sending").addEventListener("click", () => {
   let textField = document.getElementById("textfield");
-  if (textField.value.toLowerCase() == "aurs") {
-    console.log("Exist");
-  } else console.log("Wrong");
-});
+    let result = false
+    
+    text.forEach(function(x) {
+        
+        if(textField.value.toLowerCase() == x[1]) {
+            console.log("Found")
+        result = true
+  }  })
+   if(result == false) {
+      console.log("None")
+  }
+ 
+   
+})}
