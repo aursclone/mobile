@@ -11,6 +11,14 @@ body {
   user-select: none;
 }
 
+button {
+  margin: 10px;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: red;
+}
 .footer {
   position: fixed;
   width: 100%;
