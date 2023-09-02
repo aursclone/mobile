@@ -14,7 +14,7 @@ const appSettings = {
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const accountList = ref(database, "accountList");
-const resultText = document.getElementById("results")
+let resultText = document.getElementById("results")
 
 onValue(accountList, function(snapshot) {
     let accountArray = Object.entries(snapshot.val())
