@@ -56,5 +56,6 @@ document.getElementById("sending").addEventListener("click", () => {
    
 })}
 
-function appendText(text) 
+function appendText(text) {
 resultText.textContent = text
+}
