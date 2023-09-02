@@ -45,11 +45,11 @@ document.getElementById("sending").addEventListener("click", () => {
     text.forEach(function(x) {
         
         if(textField.value.toLowerCase() == x[1]) {
-            console.log("Found")
+            console.warn("Found")
         result = true
   }  })
    if(result == false) {
-      console.log("None")
+      console.warn("None")
   }
  
    
